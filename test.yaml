@@ -1,23 +1,12 @@
-
 ---
-
-- name: Get running config of SRX 320
-  gather_facts: no
-  hosts: all
-  connection: local
-
-  vars:
-    log_dir: "{{ playbook_dir }}/logs"
-
-  vars_prompt:
-    - name: "ROLLBACK"
-      prompt: "Rollback ID to compare with active configuration" 
-      private: no
-
+- hosts: all
+  become: false
   tasks:
-    - name: "Print config"
+    - name: "Show Network Interfaces"
+      command: ifconfig
+      register: details
+    - name: 'Get Interfaces details'
       debug:
-        msg: "Hello world"
-
+        msg: "{{ details.stdout }}"
 
 
