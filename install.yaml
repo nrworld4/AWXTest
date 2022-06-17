@@ -1,8 +1,8 @@
 ---
-- hosts: all
+- hosts: {{ host }}
   become: yes
   tasks:
     - name: Update apt cache and make sure Vim is installed
       apt:
-        name: vim
+        name: {{ package }}
         update_cache: yes
