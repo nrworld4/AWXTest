@@ -4,5 +4,5 @@
   tasks:
     - name: Update apt cache and make sure package is installed
       apt:
-        name: {{ package }}
+        name: "{{ package }}"
         update_cache: yes
