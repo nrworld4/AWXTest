@@ -2,7 +2,7 @@
 
 - name: Get running config of SRX 320
   gather_facts: yes
-  hosts: srx
+  hosts: jun
   connection: local
 
   vars:
