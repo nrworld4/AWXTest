@@ -1,0 +1,8 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Remove the package
+      apt:
+        name: "{{ package }}"
+        state: absent
