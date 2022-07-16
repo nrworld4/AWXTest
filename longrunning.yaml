@@ -8,3 +8,8 @@
         hostname
         sleep 60
         date
+      register: response
+  
+    - name: "Print output"
+      debug:
+        var: response.stdout_lines
