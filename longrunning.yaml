@@ -1,8 +1,10 @@
 ---
-- name: Run command with delay
+- hosts: all
   become: no
-  shell: |
-    date
-    hostname
-    sleep 60
-    date
+  tasks:
+    - name: Run shell cmd
+      shell: |
+        date
+        hostname
+        sleep 60
+        date
