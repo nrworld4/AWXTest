@@ -1,0 +1,8 @@
+# free-form (string) arguments, all arguments on one line
+- name: Run command with delay
+  become: no
+  shell: |
+    date
+    hostname
+    sleep 60
+    date
