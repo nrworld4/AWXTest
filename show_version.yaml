@@ -1,0 +1,18 @@
+---
+
+- name: Get running config of SRX 320
+  gather_facts: yes
+  hosts: all
+  connection: local
+
+  vars:
+    log_dir: "{{ playbook_dir }}/logs"
+    ROLLBACK: "{{ 1 }}"  
+
+  tasks:
+    - name: Retrieve facts from device running Junos OS
+      juniper.device.facts:
+        savedir: "{{ playbook_dir }}"
+    - name: Print version
+      debug:
+        var: junos.version
