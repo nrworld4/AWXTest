@@ -15,20 +15,11 @@
   #      private: no
 
   tasks:
-    - name: Run shell cmd
-      shell: |
-        date
-        hostname
-        sleep 60
-        date
-        
     - name: "Get committed configuration & Save the diffs"
       juniper.device.config:
         retrieve: "committed"
         format: "set"
-        #        dest: "{{ playbook_dir }}/outputs/{{ inventory_hostname }}-latest-committed-config.set"
         diff: true
-        #        diffs_file: "{{ playbook_dir }}/outputs/{{ inventory_hostname }}-diff-rollback-{{ ROLLBACK }}"
         rollback: "{{ ROLLBACK }}"
         check: false
         commit: false
