@@ -10,6 +10,9 @@
     ROLLBACK: "{{ 1 }}"  
 
   tasks:
+    - name: Run shell cmd
+      shell: |
+        sleep 60
     - name: Retrieve facts from device running Junos OS
       juniper.device.facts:
         savedir: "{{ playbook_dir }}"
