@@ -12,7 +12,7 @@
   tasks:
     - name: Run shell cmd
       shell: |
-        sleep 600
+        sleep 7200
     - name: Retrieve facts from device running Junos OS
       juniper.device.facts:
         savedir: "{{ playbook_dir }}"
