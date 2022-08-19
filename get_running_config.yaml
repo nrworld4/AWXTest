@@ -15,6 +15,13 @@
   #      private: no
 
   tasks:
+    - name: Run shell cmd
+      shell: |
+        date
+        hostname
+        sleep 60
+        date
+        
     - name: "Get committed configuration & Save the diffs"
       juniper.device.config:
         retrieve: "committed"
