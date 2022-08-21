@@ -1,0 +1,13 @@
+---
+- hosts: all
+  become: no
+  tasks:
+    - name: Run shell cmd
+      shell: |
+        date
+        hostname
+      register: response
+  
+    - name: "Print output"
+      debug:
+        var: response.stdout_lines
