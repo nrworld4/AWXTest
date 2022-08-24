@@ -2,7 +2,7 @@
 
 - name: Get running config of SRX 320
   gather_facts: yes
-  hosts: all
+  hosts: jun
   connection: local
 
   vars:
@@ -23,7 +23,6 @@
         rollback: "{{ ROLLBACK }}"
         check: false
         commit: false
-      #        logfile: "{{ log_dir }}/get_running_config.log"
       register: response
 
     - name: "Print config"
