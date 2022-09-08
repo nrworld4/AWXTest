@@ -1,0 +1,30 @@
+
+---
+
+- name: Update config of SRX 320
+  gather_facts: no
+  hosts: all
+  connection: local
+
+  vars:
+    log_dir: "{{ playbook_dir }}/logs"
+
+  tasks:
+    - name: "Update configuration"
+      juniper.device.config:
+        timeout: 60
+        config_mode: "private"
+        ignore_warning: true
+        comment: "Updated via Ansible"
+        load: "set"
+        format: "set"
+        lines: {{ config_lines }}
+        diff: true
+        check: true
+        commit_empty_changes: false
+        logfile: "{{ log_dir }}/update_config.log"
+      register: response
+
+    - name: "Print update config response"
+      debug:
+        var: response.diff_lines
